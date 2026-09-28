@@ -20,7 +20,10 @@ const elements = {
   productDialog: document.querySelector("#product-dialog"),
   productDetail: document.querySelector("#product-detail"),
   cartContent: document.querySelector("#cart-content"),
-  cartCount: document.querySelector("#cart-count")
+  cartCount: document.querySelector("#cart-count"),
+  cartPanel: document.querySelector("#cart-panel"),
+  floatingCart: document.querySelector("#floating-cart"),
+  floatingCartCount: document.querySelector("#floating-cart-count")
 };
 
 const profile = getProfile(state.activeProfileId);
@@ -92,6 +95,19 @@ function renderCurrentCart() {
       }
     }
   );
+
+  renderFloatingCart();
+}
+
+function renderFloatingCart() {
+  const itemCount = state.cart.length;
+
+  elements.floatingCartCount.textContent = String(itemCount);
+  elements.floatingCart.hidden = itemCount === 0;
+  elements.floatingCart.setAttribute(
+    "aria-label",
+    `Ir al carrito · ${itemCount} ${itemCount === 1 ? "producto" : "productos"}`
+  );
 }
 
 function openProduct(productId) {
@@ -136,6 +152,17 @@ function closeProduct() {
 elements.searchInput.addEventListener("input", (event) => {
   updateState({ searchQuery: event.target.value });
   renderCatalog();
+});
+
+elements.floatingCart.addEventListener("click", () => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  elements.cartPanel.scrollIntoView({
+    behavior: reducedMotion ? "auto" : "smooth",
+    block: "start"
+  });
+
+  elements.cartPanel.focus({ preventScroll: true });
 });
 
 elements.productDialog.addEventListener("click", (event) => {

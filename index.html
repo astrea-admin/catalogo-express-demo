@@ -55,7 +55,7 @@
         <div id="product-grid" class="product-grid"></div>
       </section>
 
-      <aside class="cart-panel" aria-labelledby="cart-title">
+      <aside id="cart-panel" class="cart-panel" aria-labelledby="cart-title" tabindex="-1">
         <div class="cart-panel__header">
           <div>
             <p class="eyebrow">Pedido</p>
@@ -72,6 +72,28 @@
   <dialog id="product-dialog" class="product-dialog">
     <div id="product-detail"></div>
   </dialog>
+
+
+  <button
+    id="floating-cart"
+    class="floating-cart"
+    type="button"
+    aria-label="Ir al carrito"
+    aria-controls="cart-panel"
+    hidden
+  >
+    <svg
+      class="floating-cart__icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 7H7.1"></path>
+      <circle cx="10" cy="20" r="1.5"></circle>
+      <circle cx="18" cy="20" r="1.5"></circle>
+    </svg>
+    <span id="floating-cart-count" class="floating-cart__count">0</span>
+  </button>
 
   <footer class="site-footer">
     <span>ASTREA™</span>

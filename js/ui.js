@@ -54,14 +54,20 @@ export function renderProductGrid(container, products, profile, onOpenProduct) {
     article.className = "product-card";
 
     article.innerHTML = `
-      <div class="product-card__image-wrap">
-        <img
-          class="product-card__image"
-          src="${product.image}"
-          alt="${escapeHtml(product.name)}"
-          loading="lazy"
-        >
-      </div>
+      <button
+        class="product-card__media-button"
+        type="button"
+        aria-label="Ver detalle de ${escapeHtml(product.name)}"
+      >
+        <span class="product-card__image-wrap">
+          <img
+            class="product-card__image"
+            src="${product.image}"
+            alt="${escapeHtml(product.name)}"
+            loading="lazy"
+          >
+        </span>
+      </button>
 
       <div class="product-card__body">
         <p class="product-card__category">${escapeHtml(category?.label ?? "")}</p>
@@ -70,12 +76,20 @@ export function renderProductGrid(container, products, profile, onOpenProduct) {
 
         <div class="product-card__footer">
           <span class="product-card__price">${formatMoney(startingPrice)}</span>
-          <button class="button button--secondary" type="button">Ver detalle</button>
+          <button class="button button--secondary" type="button" data-open-detail>
+            Ver detalle
+          </button>
         </div>
       </div>
     `;
 
-    article.querySelector("button").addEventListener("click", () => onOpenProduct(product.id));
+    article
+      .querySelector(".product-card__media-button")
+      .addEventListener("click", () => onOpenProduct(product.id));
+
+    article
+      .querySelector("[data-open-detail]")
+      .addEventListener("click", () => onOpenProduct(product.id));
     container.appendChild(article);
   });
 }
@@ -218,9 +232,7 @@ export function renderProductDetail(container, product, categoryLabel, handlers)
 }
 
 export function renderCart(container, countContainer, cart, productResolver, handlers) {
-  countContainer.textContent = String(
-    cart.reduce((accumulator, line) => accumulator + line.quantity, 0)
-  );
+  countContainer.textContent = String(cart.length);
 
   if (cart.length === 0) {
     container.innerHTML = `

@@ -57,8 +57,7 @@
           </div>
 
           <h2>
-            Buscá el producto, filtrá por categoría,<br>
-            agregá al carrito y enviá tu pedido.
+            Buscá el producto, filtrá por categoría, agregá al carrito y enviá tu pedido.
           </h2>
         </section>
 
@@ -111,9 +110,27 @@
 
     <footer class="site-footer">
       <span>ASTREA™</span>
-      <span>Nuevas maneras de mostrarte, nuevas maneras de vender.</span>
+      <span>Tu comercio, más simple</span>
     </footer>
   </section>
+
+
+  <dialog id="checkout-dialog" class="checkout-dialog" aria-labelledby="checkout-title">
+    <div class="checkout-success-shell">
+      <p class="checkout-success-shell__label">Detalle Pedido realizado</p>
+
+      <div class="checkout-success-card">
+        <div>
+          <h2 id="checkout-title">¡Gracias!</h2>
+          <p>Tu pedido se registró correctamente.</p>
+        </div>
+
+        <button id="checkout-return" class="button button--checkout-return" type="button">
+          Volver a la demo
+        </button>
+      </div>
+    </div>
+  </dialog>
 
   <dialog id="product-dialog" class="product-dialog">
     <div id="product-detail"></div>

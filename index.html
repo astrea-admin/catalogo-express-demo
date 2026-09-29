@@ -109,13 +109,23 @@
             <p>Buscá, filtrá y controlá qué productos se muestran en la demo.</p>
           </div>
 
-          <button
-            id="admin-add-product"
-            class="button admin-add-product"
-            type="button"
-          >
-            Agregar nuevo producto
-          </button>
+          <div class="admin-intro__actions">
+            <button
+              id="admin-reset-demo"
+              class="admin-reset-demo"
+              type="button"
+            >
+              Restablecer demo
+            </button>
+
+            <button
+              id="admin-add-product"
+              class="button admin-add-product"
+              type="button"
+            >
+              Agregar nuevo producto
+            </button>
+          </div>
         </section>
 
         <div id="admin-feedback" class="admin-feedback" role="status" aria-live="polite" hidden></div>
@@ -152,6 +162,27 @@
   </section>
 
 
+
+
+  <dialog id="reset-demo-dialog" class="reset-demo-dialog" aria-labelledby="reset-demo-title">
+    <div class="reset-demo-card">
+      <p class="reset-demo-card__eyebrow">Restablecer demo</p>
+      <h2 id="reset-demo-title">¿Volver al estado original?</h2>
+      <p>
+        Se eliminarán los productos agregados y se restaurarán precios,
+        visibilidad y configuraciones de los productos iniciales.
+      </p>
+
+      <div class="reset-demo-card__actions">
+        <button id="reset-demo-cancel" class="button reset-demo-cancel" type="button">
+          Cancelar
+        </button>
+        <button id="reset-demo-confirm" class="button reset-demo-confirm" type="button">
+          Restablecer
+        </button>
+      </div>
+    </div>
+  </dialog>
 
   <dialog id="admin-editor-dialog" class="admin-editor-dialog">
     <div id="admin-editor-root"></div>

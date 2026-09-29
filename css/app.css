@@ -2272,3 +2272,223 @@ body {
     padding-right: 14px;
   }
 }
+
+
+/* =========================================================
+   Admin Demo · Implementation 03
+   Transition + image gallery + reset
+   ========================================================= */
+
+.admin-intro__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.admin-reset-demo {
+  min-height: 42px;
+  padding: 0 4px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-reset-demo:hover {
+  color: var(--accent);
+}
+
+/* Editor image gallery */
+
+.admin-editor-gallery-section {
+  padding-bottom: 16px;
+}
+
+.admin-editor-gallery-help {
+  margin: -2px 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.admin-editor-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-editor-image-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.admin-editor-image-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.admin-editor-image-thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 13px;
+  background: #d2d2d2;
+  transition:
+    border-color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.admin-editor-image-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-editor-image-check {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  display: grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.admin-editor-image-option:hover .admin-editor-image-thumb {
+  transform: translateY(-1px);
+}
+
+.admin-editor-image-option input:checked + .admin-editor-image-thumb {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(237,41,63,.09);
+}
+
+.admin-editor-image-option input:checked + .admin-editor-image-thumb .admin-editor-image-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.admin-editor-image-option input:focus-visible + .admin-editor-image-thumb {
+  outline: 3px solid rgba(197,28,100,.22);
+  outline-offset: 3px;
+}
+
+.admin-editor-gallery-empty {
+  padding: 24px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Reset confirmation */
+
+.reset-demo-dialog {
+  width: min(500px, calc(100% - 28px));
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  color: var(--text);
+  box-shadow: 0 28px 90px rgba(25,21,50,.28);
+}
+
+.reset-demo-dialog::backdrop {
+  background: rgba(24,22,27,.58);
+  backdrop-filter: blur(4px);
+}
+
+.reset-demo-card {
+  padding: 34px;
+  border-radius: 24px;
+  background: #fff;
+}
+
+.reset-demo-card__eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.reset-demo-card h2 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.reset-demo-card > p:not(.reset-demo-card__eyebrow) {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.reset-demo-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.reset-demo-cancel {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+}
+
+.reset-demo-confirm {
+  background: var(--red);
+  color: #fff;
+}
+
+.reset-demo-confirm:hover {
+  background: var(--magenta);
+}
+
+@media (max-width: 680px) {
+  .admin-intro__actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .admin-reset-demo {
+    width: fit-content;
+    align-self: center;
+  }
+
+  .admin-editor-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reset-demo-card {
+    padding: 28px 22px 24px;
+  }
+
+  .reset-demo-card__actions .button {
+    flex: 1;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

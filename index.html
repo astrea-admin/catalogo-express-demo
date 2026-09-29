@@ -100,15 +100,53 @@
       </button>
     </div>
 
-    <main id="admin-placeholder" class="admin-placeholder" hidden>
-      <div class="admin-placeholder__card">
-        <p>Demo Admin ASTREA™</p>
-        <h2>Próxima etapa.</h2>
-        <span>La navegación ya está preparada. Acá montaremos la demo del Admin.</span>
+    <main id="admin-view" class="admin-view" hidden>
+      <div class="admin-page-shell">
+        <section class="admin-intro">
+          <div>
+            <p id="admin-profile-label" class="admin-profile-label">Admin - Boutique</p>
+            <h2>Administrá los productos de tu catálogo.</h2>
+            <p>Buscá, filtrá y controlá qué productos se muestran en la demo.</p>
+          </div>
+
+          <button
+            class="button admin-add-product"
+            type="button"
+            disabled
+            title="Disponible en la próxima implementación"
+          >
+            Agregar nuevo producto
+          </button>
+        </section>
+
+        <div id="admin-feedback" class="admin-feedback" role="status" aria-live="polite" hidden></div>
+
+        <section class="admin-panel" aria-label="Administración de productos">
+          <div class="admin-toolbar">
+            <label class="search-field">
+              <span class="sr-only">Buscar productos en Admin</span>
+              <input
+                id="admin-search-input"
+                type="search"
+                placeholder="Buscar productos..."
+                autocomplete="off"
+              >
+            </label>
+
+            <div
+              id="admin-category-filter"
+              class="category-filter admin-category-filter"
+              aria-label="Filtrar productos del Admin por categoría"
+            ></div>
+          </div>
+
+          <div id="admin-status" class="catalog-status admin-status" aria-live="polite"></div>
+          <div id="admin-product-list" class="admin-product-list"></div>
+        </section>
       </div>
     </main>
 
-    <footer class="site-footer">
+<footer class="site-footer">
       <span>ASTREA™</span>
       <span>Tu comercio, más simple</span>
     </footer>

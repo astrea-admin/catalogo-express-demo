@@ -5,130 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Demo comercial de ASTREA™ Catálogo Express">
   <title>ASTREA™ · Catálogo Express Demo</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
   <link rel="stylesheet" href="./css/app.css">
 </head>
 
 <body>
-  <section class="welcome-screen" aria-labelledby="welcome-title">
+  <section class="welcome-screen astrea-gradient" aria-labelledby="welcome-title">
     <div class="welcome-screen__inner">
-      <div class="welcome-brand" aria-label="ASTREA">
-        <span class="welcome-brand__mark" aria-hidden="true">A</span>
-        <span>ASTREA™</span>
-      </div>
+      <div class="welcome-logo">ASTREA™</div>
 
       <div class="welcome-content">
-        <p class="welcome-eyebrow">Explorá la demo</p>
-        <h1 id="welcome-title">Catálogo Express</h1>
-        <p class="welcome-copy">
-          Elegí el tipo de negocio que más se parece al tuyo y probá
-          una experiencia preparada para esa forma de vender.
-        </p>
+        <p class="welcome-product">Catálogo Express®</p>
+        <h1 id="welcome-title">Explorá la demo.</h1>
 
-        <div class="business-selector" aria-label="Seleccioná tu tipo de negocio">
+        <div class="business-selector" aria-label="Seleccioná tu tipo de comercio">
           <button class="business-option" type="button" data-profile="boutique">Boutique</button>
           <button class="business-option" type="button" data-profile="mayoristas">Mayoristas</button>
           <button class="business-option" type="button" data-profile="cocina">Cocina</button>
           <button class="business-option" type="button" data-profile="almacen">Almacén</button>
         </div>
-      </div>
 
-      <p class="welcome-hint">Seleccioná una opción para comenzar</p>
+        <p class="welcome-question">Seleccioná el tipo de comercio que tenés.</p>
+      </div>
     </div>
   </section>
 
   <section id="demo-section" class="demo-section" hidden>
-    <header class="demo-header">
-      <a class="brand" href="#welcome-title" aria-label="Volver al inicio">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span>ASTREA™</span>
-      </a>
+    <header class="demo-header astrea-gradient">
+      <a class="demo-logo" href="#welcome-title">ASTREA™</a>
 
-      <div class="view-switcher" aria-label="Vistas de la demo">
-        <button class="view-switcher__item is-active" type="button">
-          Demo Catálogo Express
+      <div class="demo-view-menu">
+        <button id="demo-view-toggle" class="demo-view-toggle" type="button"
+          aria-haspopup="true" aria-expanded="false" aria-controls="demo-view-list">
+          <span id="demo-view-label">Demo Catálogo Express®</span>
+          <span class="demo-view-chevron" aria-hidden="true"></span>
         </button>
-        <button class="view-switcher__item" type="button" disabled>
-          Admin ASTREA
-        </button>
+
+        <div id="demo-view-list" class="demo-view-list" hidden>
+          <button class="demo-view-option" type="button" data-demo-view="admin">
+            Demo Admin ASTREA™
+          </button>
+        </div>
       </div>
     </header>
 
-    <main class="page-shell">
-      <section class="demo-intro" aria-labelledby="demo-title">
-        <p id="profile-eyebrow" class="eyebrow">Demo</p>
-        <h2 id="demo-title">Probá el Catálogo Express</h2>
-        <p>
-          Buscá productos, filtrá por categoría, configurá tu pedido
-          y agregalo al carrito.
-        </p>
-
-        <button id="change-profile" class="change-profile" type="button">
-          Cambiar tipo de negocio
-        </button>
-      </section>
-
-      <div class="catalog-layout">
-        <section class="catalog" aria-label="Catálogo">
-          <div class="catalog-toolbar">
-            <label class="search-field">
-              <span class="sr-only">Buscar productos</span>
-              <input
-                id="search-input"
-                type="search"
-                placeholder="Buscar productos..."
-                autocomplete="off"
-              >
-            </label>
-
-            <div id="category-filter" class="category-filter" aria-label="Filtrar por categoría"></div>
+    <div id="catalog-view">
+      <main class="page-shell">
+        <section class="demo-intro">
+          <div class="demo-intro__meta">
+            <p id="profile-eyebrow" class="demo-profile-label">Demo - Boutique</p>
+            <button id="change-profile" class="change-profile" type="button">Seleccionar negocio.</button>
           </div>
 
-          <div id="catalog-status" class="catalog-status" aria-live="polite"></div>
-          <div id="product-grid" class="product-grid"></div>
+          <h2>
+            Buscá el producto, filtrá por categoría,<br>
+            agregá al carrito y enviá tu pedido.
+          </h2>
         </section>
 
-        <aside id="cart-panel" class="cart-panel" aria-labelledby="cart-title" tabindex="-1">
-          <div class="cart-panel__header">
-            <div>
-              <p class="eyebrow">Pedido</p>
-              <h2 id="cart-title">Tu carrito</h2>
-            </div>
-            <span id="cart-count" class="cart-count">0</span>
-          </div>
+        <div class="catalog-layout">
+          <section class="catalog" aria-label="Catálogo">
+            <div class="catalog-toolbar">
+              <label class="search-field">
+                <span class="sr-only">Buscar productos</span>
+                <input id="search-input" type="search" placeholder="Buscar productos..." autocomplete="off">
+              </label>
 
-          <div id="cart-content"></div>
-        </aside>
+              <div id="category-filter" class="category-filter" aria-label="Filtrar por categoría"></div>
+            </div>
+
+            <div id="catalog-status" class="catalog-status" aria-live="polite"></div>
+            <div id="product-grid" class="product-grid"></div>
+          </section>
+
+          <aside id="cart-panel" class="cart-panel" aria-labelledby="cart-title" tabindex="-1">
+            <div class="cart-panel__header">
+              <div>
+                <p class="eyebrow">Pedido</p>
+                <h2 id="cart-title">Tu carrito</h2>
+              </div>
+              <span id="cart-count" class="cart-count">0</span>
+            </div>
+            <div id="cart-content"></div>
+          </aside>
+        </div>
+      </main>
+
+      <button id="floating-cart" class="floating-cart" type="button"
+        aria-label="Ir al carrito" aria-controls="cart-panel" hidden>
+        <svg class="floating-cart__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 7H7.1"></path>
+          <circle cx="10" cy="20" r="1.5"></circle>
+          <circle cx="18" cy="20" r="1.5"></circle>
+        </svg>
+        <span id="floating-cart-count" class="floating-cart__count">0</span>
+      </button>
+    </div>
+
+    <main id="admin-placeholder" class="admin-placeholder" hidden>
+      <div class="admin-placeholder__card">
+        <p>Demo Admin ASTREA™</p>
+        <h2>Próxima etapa.</h2>
+        <span>La navegación ya está preparada. Acá montaremos la demo del Admin.</span>
       </div>
     </main>
-
-    <button
-      id="floating-cart"
-      class="floating-cart"
-      type="button"
-      aria-label="Ir al carrito"
-      aria-controls="cart-panel"
-      hidden
-    >
-      <svg
-        class="floating-cart__icon"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 7H7.1"></path>
-        <circle cx="10" cy="20" r="1.5"></circle>
-        <circle cx="18" cy="20" r="1.5"></circle>
-      </svg>
-      <span id="floating-cart-count" class="floating-cart__count">0</span>
-    </button>
 
     <footer class="site-footer">
       <span>ASTREA™</span>

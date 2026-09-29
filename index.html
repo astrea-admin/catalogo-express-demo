@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <section class="welcome-screen astrea-gradient" aria-labelledby="welcome-title">
+  <section id="welcome-screen" class="welcome-screen astrea-gradient" aria-labelledby="welcome-title">
     <div class="welcome-screen__inner">
       <div class="welcome-logo">ASTREA™</div>
 
@@ -31,7 +31,7 @@
 
   <section id="demo-section" class="demo-section" hidden>
     <header class="demo-header astrea-gradient">
-      <a class="demo-logo" href="#welcome-title">ASTREA™</a>
+      <span class="demo-logo">ASTREA™</span>
 
       <div class="demo-view-menu">
         <button id="demo-view-toggle" class="demo-view-toggle" type="button"
@@ -110,10 +110,9 @@
           </div>
 
           <button
+            id="admin-add-product"
             class="button admin-add-product"
             type="button"
-            disabled
-            title="Disponible en la próxima implementación"
           >
             Agregar nuevo producto
           </button>
@@ -152,6 +151,11 @@
     </footer>
   </section>
 
+
+
+  <dialog id="admin-editor-dialog" class="admin-editor-dialog">
+    <div id="admin-editor-root"></div>
+  </dialog>
 
   <dialog id="checkout-dialog" class="checkout-dialog" aria-labelledby="checkout-title">
     <div class="checkout-success-shell">

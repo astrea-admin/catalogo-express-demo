@@ -1544,3 +1544,186 @@ body {
     animation: none !important;
   }
 }
+
+
+/* =========================================================
+   Catalog Closeout
+   Desktop hierarchy + checkout sandbox
+   ========================================================= */
+
+/* Desktop: reduce header footprint and give dropdown option more air. */
+@media (min-width: 681px) {
+  .demo-header {
+    min-height: 118px;
+    padding: 20px clamp(42px, 6vw, 88px);
+  }
+
+  .demo-logo {
+    font-size: clamp(25px, 2.4vw, 31px);
+  }
+
+  .demo-view-menu {
+    min-width: 300px;
+  }
+
+  .demo-view-toggle {
+    min-height: 38px;
+    gap: 14px;
+    font-size: clamp(16px, 1.7vw, 19px);
+  }
+
+  .demo-view-chevron {
+    width: 14px;
+    height: 14px;
+    border-width: 0 3px 3px 0;
+  }
+
+  .demo-view-list {
+    top: calc(100% + 1px);
+    right: 25px;
+    min-width: 235px;
+    padding: 7px 0 10px;
+  }
+
+  .demo-view-option {
+    padding: 7px 0;
+    font-size: clamp(14px, 1.45vw, 16px);
+    line-height: 1.35;
+  }
+
+  .page-shell {
+    padding-top: 44px;
+  }
+
+  .demo-intro {
+    margin-bottom: 28px;
+  }
+
+  .demo-intro__meta {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .demo-profile-label,
+  .change-profile {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .change-profile {
+    border-bottom-width: 1px;
+  }
+
+  .demo-intro h2 {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    font-size: clamp(19px, 1.8vw, 23px);
+    line-height: 1.5;
+    letter-spacing: -.015em;
+    font-weight: 500;
+  }
+}
+
+/* Checkout success */
+
+.checkout-dialog {
+  width: min(650px, calc(100% - 28px));
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 30px;
+  background: transparent;
+  color: var(--text);
+  box-shadow: 0 28px 90px rgba(25, 21, 50, .24);
+}
+
+.checkout-dialog::backdrop {
+  background: rgba(24, 22, 27, .58);
+  backdrop-filter: blur(4px);
+}
+
+.checkout-success-shell {
+  padding: 34px 46px 46px;
+  border-radius: 30px;
+  background: #d9d9d9;
+}
+
+.checkout-success-shell__label {
+  margin: 0 0 28px;
+  color: #4b484a;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.checkout-success-card {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 50px 38px 42px;
+  border: 1px solid #c6c1c4;
+  border-radius: 14px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.checkout-success-card h2 {
+  margin: 0;
+  font-size: clamp(46px, 7vw, 62px);
+  line-height: 1;
+  letter-spacing: -.045em;
+  font-weight: 500;
+}
+
+.checkout-success-card p {
+  max-width: 390px;
+  margin: 24px auto 0;
+  font-size: clamp(23px, 3.6vw, 30px);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.button--checkout-return {
+  min-width: min(245px, 100%);
+  background: var(--red);
+  color: var(--white);
+}
+
+.button--checkout-return:hover {
+  background: var(--magenta);
+}
+
+@media (max-width: 680px) {
+  .checkout-dialog {
+    width: min(560px, calc(100% - 22px));
+    border-radius: 24px;
+  }
+
+  .checkout-success-shell {
+    padding: 24px 20px 26px;
+    border-radius: 24px;
+  }
+
+  .checkout-success-shell__label {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .checkout-success-card {
+    min-height: 310px;
+    padding: 42px 22px 34px;
+  }
+
+  .checkout-success-card h2 {
+    font-size: 44px;
+  }
+
+  .checkout-success-card p {
+    margin-top: 18px;
+    font-size: 22px;
+  }
+}
